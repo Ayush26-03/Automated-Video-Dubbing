@@ -554,7 +554,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 setTimeout(() => {
                     renderCompleteResult({
                         target_language: state.selectedLang,
-                        video_url: "/assets/village_story.svg",
+                        video_url: "./assets/village_story.svg",
                         audio_url: "#",
                         srt_url: "#"
                     });
@@ -575,9 +575,9 @@ document.addEventListener("DOMContentLoaded", () => {
         // Video Player
         if (result?.video_url && result.video_url.endsWith(".mp4")) {
             finalDubbedVideoPlayer.src = result.video_url;
-            finalDubbedVideoPlayer.poster = "/assets/village_story.svg";
+            finalDubbedVideoPlayer.poster = "./assets/village_story.svg";
         } else {
-            finalDubbedVideoPlayer.poster = "/assets/village_story.svg";
+            finalDubbedVideoPlayer.poster = "./assets/village_story.svg";
         }
 
         // Download Links
@@ -654,7 +654,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="project-card" data-title="${escapeHtml(title)}" data-lang="${tgtLang}">
                     <div class="project-card-left">
                         <div class="project-thumb-box">
-                            <img src="/assets/village_story.svg" alt="Project thumbnail" class="project-thumb-img">
+                            <img src="./assets/village_story.svg" alt="Project thumbnail" class="project-thumb-img">
                         </div>
                         <div class="project-info-wrap">
                             <h3 class="project-name">${escapeHtml(title)}</h3>

@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DubStudio AI - AI Video Dubbing & Translation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="light-theme">
+
+    <div class="app-layout">
+        <!-- ========================================================
+             LEFT SIDEBAR
+             ======================================================== -->
+        <aside class="app-sidebar" id="appSidebar">
+            <!-- Brand Logo -->
+            <div class="brand-container">
+                <div class="brand-logo-icon">
+                    <span>A</span>
+                </div>
+                <span class="brand-title">DubStudio AI</span>
+            </div>
+
+            <!-- Navigation Links -->
+            <nav class="sidebar-nav">
+                <button class="nav-item active" data-view="home" id="navHome">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                    </svg>
+                    <span>Home</span>
+                </button>
+
+                <button class="nav-item" data-view="settings" id="navSettings">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                    </svg>
+                    <span>Settings</span>
+                </button>
+
+                <button class="nav-item" data-view="history" id="navHistory">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span>History</span>
+                </button>
+
+                <button class="nav-item" data-view="transcript" id="navTranscript">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                    <span>Transcript</span>
+                </button>
+
+                <button class="nav-item" data-view="about" id="navAbout">
+                    <svg class="nav-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <span>About</span>
+                </button>
+            </nav>
+        </aside>
+
+        <!-- ========================================================
+             MAIN CONTENT WRAPPER
+             ======================================================== -->
+        <main class="app-main">
+            <!-- Top Header Controls (Theme Toggle & User Avatar) -->
+            <header class="main-topbar">
+                <button class="mobile-toggle-btn" id="mobileToggleBtn" aria-label="Toggle navigation">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <div class="topbar-actions">
+                    <!-- Sun / Moon Switch Pill -->
+                    <button class="theme-toggle-switch" id="themeToggleBtn" title="Toggle theme">
+                        <span class="theme-switch-slider">
+                            <span class="theme-icon sun-icon">☀️</span>
+                            <span class="theme-icon moon-icon">🌙</span>
+                        </span>
+                    </button>
+
+                    <!-- User Avatar Pill -->
+                    <div class="user-avatar-badge" title="Account: DubStudio User">
+                        <span>A</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Views Container -->
+            <div class="views-wrapper">
+
+                <!-- ========================================================
+                     SCREEN 1: HOME (Translate. Dub. Share.)
+                     ======================================================== -->
+                <section class="view-panel active" id="viewHome">
+                    <div class="home-container">
+                        <!-- Hero Section -->
+                        <div class="hero-header">
+                            <h1 class="hero-title">Translate. Dub. <span class="highlight-blue">Share.</span></h1>
+                            <p class="hero-subtitle">
+                                Give your videos a global voice with AI. Translate, dub and reach people in 25+ languages with natural voices.
+                            </p>
+                        </div>
+
+                        <!-- Upload Card (Two-column card with OR divider) -->
+                        <div class="upload-unified-card">
+                            <!-- Left: File Upload Dropzone -->
+                            <div class="upload-drop-side" id="mainDropZone">
+                                <input type="file" id="heroFileInput" accept="video/mp4,video/mkv,video/mov,video/webm,video/avi" hidden>
+                                <div class="upload-cloud-icon-wrap">
+                                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                                        <path d="M12 12v9"></path>
+                                        <path d="m16 16-4-4-4 4"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="upload-card-title">Upload your video</h3>
+                                <p class="upload-card-sub">Supports MP4, MOV, AVI, MKV (Max 500MB)</p>
+                                <button type="button" class="btn-primary-blue" id="btnChooseFile">Choose File</button>
+                            </div>
+
+                            <!-- Middle: OR Divider -->
+                            <div class="upload-divider-col">
+                                <div class="divider-line"></div>
+                                <span class="or-badge">OR</span>
+                                <div class="divider-line"></div>
+                            </div>
+
+                            <!-- Right: Paste YouTube URL -->
+                            <div class="upload-youtube-side">
+                                <div class="yt-header-row">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                    </svg>
+                                    <h3 class="yt-title">Paste YouTube URL</h3>
+                                </div>
+                                <div class="yt-input-wrapper">
+                                    <input type="url" id="youtubeUrlInput" class="input-youtube" placeholder="https://www.youtube.com/watch?v=..." autocomplete="off">
+                                </div>
+                                <button type="button" class="btn-primary-blue btn-import" id="btnImportYouTube">Import</button>
+                            </div>
+                        </div>
+
+                        <!-- Popular Languages Bar -->
+                        <div class="popular-langs-section">
+                            <span class="popular-label">Popular Languages</span>
+                            <div class="popular-chips-wrap">
+                                <button type="button" class="lang-pill" data-code="hi">🇮🇳 Hindi</button>
+                                <button type="button" class="lang-pill" data-code="es">🇪🇸 Spanish</button>
+                                <button type="button" class="lang-pill" data-code="fr">🇫🇷 French</button>
+                                <button type="button" class="lang-pill" data-code="de">🇩🇪 German</button>
+                                <button type="button" class="lang-pill" data-code="ja">🇯🇵 Japanese</button>
+                                <button type="button" class="lang-pill" data-code="ko">🇰🇷 Korean</button>
+                                <button type="button" class="lang-pill-more" id="btnMoreLanguages">More →</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     SCREEN 2: DUBBING SETTINGS
+                     ======================================================== -->
+                <section class="view-panel" id="viewSettings">
+                    <div class="settings-container">
+                        <!-- Header -->
+                        <div class="view-header">
+                            <h1 class="view-title">Dubbing Settings</h1>
+                            <p class="view-subtitle">Customize your dubbing preferences</p>
+                        </div>
+
+                        <!-- Settings 2x3 Grid -->
+                        <div class="settings-grid">
+                            <!-- 1. Target Language -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="targetLangSelect">Target Language</label>
+                                <div class="select-wrapper">
+                                    <select id="targetLangSelect" class="form-select">
+                                        <option value="hi" selected>🇮🇳 Hindi</option>
+                                        <option value="es">🇪🇸 Spanish</option>
+                                        <option value="fr">🇫🇷 French</option>
+                                        <option value="de">🇩🇪 German</option>
+                                        <option value="ja">🇯🇵 Japanese</option>
+                                        <option value="ko">🇰🇷 Korean</option>
+                                        <option value="en">🇬🇧 English</option>
+                                        <option value="pt">🇧🇷 Portuguese</option>
+                                        <option value="it">🇮🇹 Italian</option>
+                                        <option value="ru">🇷🇺 Russian</option>
+                                        <option value="ar">🇸🇦 Arabic</option>
+                                        <option value="zh">🇨🇳 Chinese</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+
+                            <!-- 2. Voice -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="voiceSelect">Voice</label>
+                                <div class="select-wrapper">
+                                    <select id="voiceSelect" class="form-select">
+                                        <option value="male" selected>🎙️ Male (Natural)</option>
+                                        <option value="female">🎙️ Female (Natural)</option>
+                                        <option value="warm">🎙️ Male (Warm & Expressive)</option>
+                                        <option value="clear">🎙️ Female (Clear & Crisp)</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+
+                            <!-- 3. Whisper Model -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="whisperModelInput">Whisper Model</label>
+                                <div class="select-wrapper">
+                                    <select id="whisperModelInput" class="form-select">
+                                        <option value="base" selected>⚙️ Base (Fast)</option>
+                                        <option value="small">⚙️ Small (Recommended)</option>
+                                        <option value="medium">⚙️ Medium (High Precision)</option>
+                                        <option value="tiny">⚙️ Tiny (Ultra Fast)</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+
+                            <!-- 4. Subtitle Style -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="subtitleStyleSelect">Subtitle Style</label>
+                                <div class="select-wrapper">
+                                    <select id="subtitleStyleSelect" class="form-select">
+                                        <option value="enabled" selected>💬 Enabled</option>
+                                        <option value="burned">💬 Burned into Video</option>
+                                        <option value="disabled">💬 Disabled</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+
+                            <!-- 5. Background Music -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="bgMusicSelect">Background Music</label>
+                                <div class="select-wrapper">
+                                    <select id="bgMusicSelect" class="form-select">
+                                        <option value="keep" selected>🎵 Original Audio (Recommended)</option>
+                                        <option value="mute">🎵 Mute Background Audio</option>
+                                        <option value="duck">🎵 Lower Background Audio (Ducking)</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+
+                            <!-- 6. Output Format -->
+                            <div class="setting-field-group">
+                                <label class="setting-label" for="outputFormatSelect">Output Format</label>
+                                <div class="select-wrapper">
+                                    <select id="outputFormatSelect" class="form-select">
+                                        <option value="mp4" selected>🎬 MP4</option>
+                                        <option value="mkv">🎬 MKV</option>
+                                        <option value="webm">🎬 WebM</option>
+                                        <option value="mp3">🎵 MP3 (Audio Only)</option>
+                                    </select>
+                                    <span class="select-chevron">▾</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Advanced Options Drawer -->
+                        <div class="advanced-section">
+                            <button type="button" class="btn-advanced-toggle" id="btnAdvancedToggle">
+                                <span class="adv-icon">⚙️</span>
+                                <span>Advanced Options</span>
+                                <span class="adv-arrow">▾</span>
+                            </button>
+                            <div class="advanced-panel" id="advancedPanel">
+                                <div class="adv-grid">
+                                    <div class="adv-field">
+                                        <label>Voice Activity Detection (VAD)</label>
+                                        <select id="vadThresholdSelect" class="form-select-sm">
+                                            <option value="500">500ms Pauses (Standard)</option>
+                                            <option value="300">300ms Pauses (Fast Speech)</option>
+                                            <option value="800">800ms Pauses (Relaxed Pace)</option>
+                                        </select>
+                                    </div>
+                                    <div class="adv-field">
+                                        <label>Translation Engine</label>
+                                        <select id="transModelSelect" class="form-select-sm">
+                                            <option value="nllb">Meta NLLB-200 (Multilingual Neural)</option>
+                                            <option value="m2m">M2M-100 (Direct Pair)</option>
+                                        </select>
+                                    </div>
+                                    <div class="adv-field">
+                                        <label>Target Audio Bitrate</label>
+                                        <select id="bitrateSelect" class="form-select-sm">
+                                            <option value="192k">192 kbps (High Fidelity)</option>
+                                            <option value="128k">128 kbps (Standard)</option>
+                                            <option value="256k">256 kbps (Studio)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom Action Bar -->
+                        <div class="settings-actions-bar">
+                            <div class="selected-video-pill" id="selectedVideoPill" style="display:none;">
+                                <span id="pillVideoName">source_video.mp4</span>
+                                <span class="pill-meta" id="pillVideoMeta">02:30 · 45 MB</span>
+                            </div>
+                            <button type="button" class="btn-start-dubbing" id="btnStartDubbing">
+                                <span>Start Dubbing</span>
+                                <span class="arrow-icon">→</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     SCREEN 3: PROCESSING YOUR VIDEO
+                     ======================================================== -->
+                <section class="view-panel" id="viewProcessing">
+                    <div class="processing-container">
+                        <!-- Header -->
+                        <div class="view-header">
+                            <h1 class="view-title">Processing Your Video</h1>
+                            <p class="view-subtitle">Sit back while we translate and dub your video using AI.</p>
+                        </div>
+
+                        <div class="processing-grid">
+                            <!-- Left: Steps Timeline -->
+                            <div class="pipeline-steps-column" id="pipelineChecklist">
+                                <!-- Step 1 -->
+                                <div class="step-card completed" data-step="1">
+                                    <div class="step-icon-circle check-green">
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="20 6 9 17 4 12"></polyline>
+                                        </svg>
+                                    </div>
+                                    <div class="step-text-wrap">
+                                        <h4 class="step-title">Transcribing audio</h4>
+                                        <p class="step-desc">Extracting speech from video...</p>
+                                    </div>
+                                </div>
+                                <div class="step-connector completed"></div>
+
+                                <!-- Step 2 -->
+                                <div class="step-card active" data-step="2">
+                                    <div class="step-icon-circle blue-active">
+                                        <div class="pulsing-dot"></div>
+                                    </div>
+                                    <div class="step-text-wrap">
+                                        <h4 class="step-title">Translating</h4>
+                                        <p class="step-desc" id="translatingSubtext">Converting to Hindi...</p>
+                                    </div>
+                                </div>
+                                <div class="step-connector"></div>
+
+                                <!-- Step 3 -->
+                                <div class="step-card" data-step="3">
+                                    <div class="step-icon-circle hollow-gray"></div>
+                                    <div class="step-text-wrap">
+                                        <h4 class="step-title">Generating voice</h4>
+                                        <p class="step-desc">Creating natural voice...</p>
+                                    </div>
+                                </div>
+                                <div class="step-connector"></div>
+
+                                <!-- Step 4 -->
+                                <div class="step-card" data-step="4">
+                                    <div class="step-icon-circle hollow-gray"></div>
+                                    <div class="step-text-wrap">
+                                        <h4 class="step-title">Adding subtitles</h4>
+                                        <p class="step-desc">Burning subtitles to video...</p>
+                                    </div>
+                                </div>
+                                <div class="step-connector"></div>
+
+                                <!-- Step 5 -->
+                                <div class="step-card" data-step="5">
+                                    <div class="step-icon-circle hollow-gray"></div>
+                                    <div class="step-text-wrap">
+                                        <h4 class="step-title">Finalizing</h4>
+                                        <p class="step-desc">Almost done...</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right: Circular Progress Ring Card -->
+                            <div class="progress-ring-card">
+                                <div class="ring-svg-wrapper">
+                                    <svg class="progress-circle-svg" viewBox="0 0 160 160">
+                                        <defs>
+                                            <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                                <stop offset="0%" stop-color="#6366f1"/>
+                                                <stop offset="100%" stop-color="#8b5cf6"/>
+                                            </linearGradient>
+                                        </defs>
+                                        <circle class="ring-track" cx="80" cy="80" r="68"></circle>
+                                        <circle class="ring-fill" id="progressRingCircle" cx="80" cy="80" r="68"></circle>
+                                    </svg>
+                                    <div class="ring-center-content">
+                                        <span class="ring-percent" id="ringPercentText">35%</span>
+                                    </div>
+                                </div>
+                                <h3 class="ring-status-heading" id="ringStatusHeading">Translating...</h3>
+                                <p class="ring-subline">This may take a few minutes</p>
+                                <p class="ring-subline-faint">Please don't close this page.</p>
+
+                                <button type="button" class="btn-cancel-proc" id="btnCancelJob" style="display:none;">Cancel Job</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     SCREEN 4: DUBBING COMPLETE
+                     ======================================================== -->
+                <section class="view-panel" id="viewComplete">
+                    <div class="complete-container">
+                        <!-- Header -->
+                        <div class="view-header">
+                            <h1 class="view-title">
+                                Dubbing Complete <span class="complete-check-icon">✔</span>
+                            </h1>
+                            <p class="view-subtitle">Your video has been successfully dubbed.</p>
+                        </div>
+
+                        <div class="complete-grid">
+                            <!-- Left: Video Player -->
+                            <div class="video-preview-wrapper">
+                                <div class="video-screen-card">
+                                    <video id="finalDubbedVideoPlayer" class="complete-video" controls playsinline poster="./assets/village_story.svg">
+                                        <source src="" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                            </div>
+
+                            <!-- Right: Download & Share Actions -->
+                            <div class="complete-actions-column">
+                                <!-- Download Section -->
+                                <div class="actions-group">
+                                    <h3 class="section-label">Download</h3>
+                                    <a id="btnDlVideo" class="btn-action-primary" href="#" download>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                                        </svg>
+                                        <span>Video (MP4)</span>
+                                    </a>
+
+                                    <a id="btnDlSubtitles" class="btn-action-outline" href="#" download>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                            <polyline points="7 10 12 15 17 10"></polyline>
+                                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                                        </svg>
+                                        <span>Subtitles (SRT)</span>
+                                    </a>
+
+                                    <a id="btnDlAudio" class="btn-action-outline" href="#" download>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M9 18V5l12-2v13"></path>
+                                            <circle cx="6" cy="18" r="3"></circle>
+                                            <circle cx="18" cy="16" r="3"></circle>
+                                        </svg>
+                                        <span>Audio Only (MP3)</span>
+                                    </a>
+                                </div>
+
+                                <!-- Share Section -->
+                                <div class="actions-group share-group">
+                                    <div class="share-header-row">
+                                        <h3 class="section-label">Share</h3>
+                                        <span class="share-collapse-icon">▾</span>
+                                    </div>
+                                    <button type="button" class="btn-action-outline" id="btnCopyLink">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+                                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+                                        </svg>
+                                        <span id="copyLinkText">Copy Link</span>
+                                    </button>
+                                </div>
+
+                                <!-- Quick link to Transcript -->
+                                <button type="button" class="btn-view-transcript-link" id="btnGoToTranscript">
+                                    <span>View Transcript & Translation →</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     SCREEN 5: TRANSCRIPT & TRANSLATION
+                     ======================================================== -->
+                <section class="view-panel" id="viewTranscript">
+                    <div class="transcript-container">
+                        <!-- Header with Download SRT button -->
+                        <div class="transcript-header-row">
+                            <div class="view-header-left">
+                                <h1 class="view-title">Transcript & Translation</h1>
+                                <p class="view-subtitle">View the original and translated text with timestamps.</p>
+                            </div>
+                            <div class="view-header-right">
+                                <a id="btnDlTranscriptSrt" class="btn-download-srt" href="#" download>
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    <span>Download SRT</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Transcript Table Card -->
+                        <div class="transcript-table-card">
+                            <table class="transcript-table">
+                                <thead>
+                                    <tr>
+                                        <th class="th-time">Time</th>
+                                        <th class="th-orig">Original (English)</th>
+                                        <th class="th-trans" id="thTransLang">Translated (Hindi)</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="transcriptTableBody">
+                                    <!-- Populated dynamically or with default sample rows -->
+                                    <tr class="trans-row" data-time="0">
+                                        <td class="td-time">
+                                            <button class="btn-play-timestamp" title="Play at 00:00">▶</button>
+                                            <span>00:00 - 00:04</span>
+                                        </td>
+                                        <td class="td-orig">A small village lies near the lake.</td>
+                                        <td class="td-trans">झील के पास एक छोटा सा गाँव है।</td>
+                                    </tr>
+                                    <tr class="trans-row" data-time="4">
+                                        <td class="td-time">
+                                            <button class="btn-play-timestamp" title="Play at 00:04">▶</button>
+                                            <span>00:04 - 00:07</span>
+                                        </td>
+                                        <td class="td-orig">The mountains look beautiful today.</td>
+                                        <td class="td-trans">पहाड़ आज बहुत सुंदर लग रहे हैं।</td>
+                                    </tr>
+                                    <tr class="trans-row" data-time="7">
+                                        <td class="td-time">
+                                            <button class="btn-play-timestamp" title="Play at 00:07">▶</button>
+                                            <span>00:07 - 00:11</span>
+                                        </td>
+                                        <td class="td-orig">People here live a simple life.</td>
+                                        <td class="td-trans">यहाँ के लोग एक साधारण जीवन जीते हैं।</td>
+                                    </tr>
+                                    <tr class="trans-row" data-time="11">
+                                        <td class="td-time">
+                                            <button class="btn-play-timestamp" title="Play at 00:11">▶</button>
+                                            <span>00:11 - 00:15</span>
+                                        </td>
+                                        <td class="td-orig">But there is a story behind this place.</td>
+                                        <td class="td-trans">लेकिन इस जगह के पीछे एक कहानी है।</td>
+                                    </tr>
+                                    <tr class="trans-row" data-time="15">
+                                        <td class="td-time">
+                                            <button class="btn-play-timestamp" title="Play at 00:15">▶</button>
+                                            <span>00:15 - 00:20</span>
+                                        </td>
+                                        <td class="td-orig">Let's explore it together.</td>
+                                        <td class="td-trans">आइए इसे साथ मिलकर खोजते हैं।</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     SCREEN 6: YOUR PROJECTS (HISTORY)
+                     ======================================================== -->
+                <section class="view-panel" id="viewHistory">
+                    <div class="projects-container">
+                        <!-- Header with Search -->
+                        <div class="projects-header-row">
+                            <div class="view-header-left">
+                                <h1 class="view-title">Your Projects</h1>
+                                <p class="view-subtitle">View and manage your previous dubbing projects.</p>
+                            </div>
+                            <div class="view-header-right">
+                                <div class="search-input-wrap">
+                                    <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="11" cy="11" r="8"></circle>
+                                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                                    </svg>
+                                    <input type="text" id="projectSearchInput" class="input-project-search" placeholder="Search videos...">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projects List -->
+                        <div class="projects-list-wrap" id="projectsListContainer">
+                            <!-- Project 1: Village Story -->
+                            <div class="project-card" data-title="Village Story" data-lang="hi">
+                                <div class="project-card-left">
+                                    <div class="project-thumb-box">
+                                        <img src="./assets/village_story.svg" alt="Village Story thumbnail" class="project-thumb-img">
+                                    </div>
+                                    <div class="project-info-wrap">
+                                        <h3 class="project-name">Village Story</h3>
+                                        <p class="project-meta">English → Hindi &nbsp;·&nbsp; 2 min &nbsp;·&nbsp; 120 MB</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-right">
+                                    <div class="project-status-date">
+                                        <span class="status-badge-completed">Completed</span>
+                                        <span class="project-date">12 Oct 2026</span>
+                                    </div>
+                                    <div class="project-actions-row">
+                                        <button class="btn-icon-action" title="Download Video">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="Open Video & Transcript">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                                <polyline points="15 3 21 3 21 9"></polyline>
+                                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="More options">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                                <circle cx="12" cy="12" r="1.8"></circle>
+                                                <circle cx="19" cy="12" r="1.8"></circle>
+                                                <circle cx="5" cy="12" r="1.8"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 2: Travel Vlog -->
+                            <div class="project-card" data-title="Travel Vlog" data-lang="es">
+                                <div class="project-card-left">
+                                    <div class="project-thumb-box">
+                                        <img src="./assets/travel_vlog.svg" alt="Travel Vlog thumbnail" class="project-thumb-img">
+                                    </div>
+                                    <div class="project-info-wrap">
+                                        <h3 class="project-name">Travel Vlog</h3>
+                                        <p class="project-meta">English → Spanish &nbsp;·&nbsp; 5 min &nbsp;·&nbsp; 250 MB</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-right">
+                                    <div class="project-status-date">
+                                        <span class="status-badge-completed">Completed</span>
+                                        <span class="project-date">10 Oct 2026</span>
+                                    </div>
+                                    <div class="project-actions-row">
+                                        <button class="btn-icon-action" title="Download Video">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="Open Video & Transcript">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                                <polyline points="15 3 21 3 21 9"></polyline>
+                                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="More options">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                                <circle cx="12" cy="12" r="1.8"></circle>
+                                                <circle cx="19" cy="12" r="1.8"></circle>
+                                                <circle cx="5" cy="12" r="1.8"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 3: Nature Documentary -->
+                            <div class="project-card" data-title="Nature Documentary" data-lang="ja">
+                                <div class="project-card-left">
+                                    <div class="project-thumb-box">
+                                        <img src="./assets/nature_doc.svg" alt="Nature Documentary thumbnail" class="project-thumb-img">
+                                    </div>
+                                    <div class="project-info-wrap">
+                                        <h3 class="project-name">Nature Documentary</h3>
+                                        <p class="project-meta">English → Japanese &nbsp;·&nbsp; 8 min &nbsp;·&nbsp; 310 MB</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-right">
+                                    <div class="project-status-date">
+                                        <span class="status-badge-completed">Completed</span>
+                                        <span class="project-date">08 Oct 2026</span>
+                                    </div>
+                                    <div class="project-actions-row">
+                                        <button class="btn-icon-action" title="Download Video">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="Open Video & Transcript">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                                <polyline points="15 3 21 3 21 9"></polyline>
+                                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="More options">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                                <circle cx="12" cy="12" r="1.8"></circle>
+                                                <circle cx="19" cy="12" r="1.8"></circle>
+                                                <circle cx="5" cy="12" r="1.8"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Project 4: City Life -->
+                            <div class="project-card" data-title="City Life" data-lang="de">
+                                <div class="project-card-left">
+                                    <div class="project-thumb-box">
+                                        <img src="./assets/city_life.svg" alt="City Life thumbnail" class="project-thumb-img">
+                                    </div>
+                                    <div class="project-info-wrap">
+                                        <h3 class="project-name">City Life</h3>
+                                        <p class="project-meta">English → German &nbsp;·&nbsp; 3 min &nbsp;·&nbsp; 180 MB</p>
+                                    </div>
+                                </div>
+                                <div class="project-card-right">
+                                    <div class="project-status-date">
+                                        <span class="status-badge-completed">Completed</span>
+                                        <span class="project-date">05 Oct 2026</span>
+                                    </div>
+                                    <div class="project-actions-row">
+                                        <button class="btn-icon-action" title="Download Video">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                                <polyline points="7 10 12 15 17 10"></polyline>
+                                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="Open Video & Transcript">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                                                <polyline points="15 3 21 3 21 9"></polyline>
+                                                <line x1="10" y1="14" x2="21" y2="3"></line>
+                                            </svg>
+                                        </button>
+                                        <button class="btn-icon-action" title="More options">
+                                            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                                                <circle cx="12" cy="12" r="1.8"></circle>
+                                                <circle cx="19" cy="12" r="1.8"></circle>
+                                                <circle cx="5" cy="12" r="1.8"></circle>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ========================================================
+                     ABOUT MODAL
+                     ======================================================== -->
+                <div class="modal-backdrop" id="aboutModal">
+                    <div class="modal-card">
+                        <div class="modal-header">
+                            <div class="modal-title-wrap">
+                                <div class="brand-logo-icon sm"><span>A</span></div>
+                                <h2>About DubStudio AI</h2>
+                            </div>
+                            <button class="btn-close-modal" id="btnCloseAbout">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-desc">
+                                DubStudio AI transforms videos into 25+ global languages with neural voice synthesis, temporal speech synchronization, and automated subtitles.
+                            </p>
+                            <div class="pipeline-tech-list">
+                                <div class="tech-item">
+                                    <strong>Voice Activity Detection</strong>
+                                    <span>Silero VAD splits speech at acoustic pause thresholds.</span>
+                                </div>
+                                <div class="tech-item">
+                                    <strong>Speech-to-Text</strong>
+                                    <span>Faster-Whisper (CTranslate2) generates timestamped multilingual transcriptions.</span>
+                                </div>
+                                <div class="tech-item">
+                                    <strong>Neural Translation</strong>
+                                    <span>Meta NLLB-200 with repetition-penalized beam search.</span>
+                                </div>
+                                <div class="tech-item">
+                                    <strong>Neural Voice Dubbing</strong>
+                                    <span>Edge-TTS high-fidelity neural voice synthesis.</span>
+                                </div>
+                                <div class="tech-item">
+                                    <strong>Temporal Audio Sync</strong>
+                                    <span>FFmpeg atempo dynamic cadence stretching for lip & gesture sync.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn-primary-blue" id="btnDismissAbout">Close</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- .views-wrapper -->
+        </main>
+    </div><!-- .app-layout -->
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastMessage">Link copied to clipboard!</div>
+
+    <script src="./js/app.js"></script>
+</body>
+</html>
