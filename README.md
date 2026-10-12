@@ -1,4 +1,4 @@
-# 🎙️ Automated Video Dubbing Pipeline 🎬
+#  Automated Video Dubbing Pipeline 
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://ayush26-03.github.io/Automated-Video-Dubbing/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
@@ -10,7 +10,7 @@ An end-to-end AI-powered video translation and dubbing system that transcribes s
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 
 - **Multi-Source Ingestion**: Works with YouTube URLs or local video files (`.mp4`, `.mkv`, `.mov`, `.avi`, `.webm`).
 - **State-of-the-Art Transcription**: Powered by **OpenAI Whisper** with automatic language detection and timestamp segmentation.
@@ -22,7 +22,7 @@ An end-to-end AI-powered video translation and dubbing system that transcribes s
 
 ---
 
-## 🏗️ Architecture Pipeline
+##  Architecture Pipeline
 
 ```
 [Input Video / YouTube URL]
@@ -51,7 +51,7 @@ An end-to-end AI-powered video translation and dubbing system that transcribes s
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Prerequisites
 
@@ -73,7 +73,7 @@ pip install -r requirements.txt
 
 ---
 
-## 💻 Usage
+##  Usage
 
 ### 1. Modern Web Application (Recommended)
 
@@ -86,12 +86,12 @@ python app.py
 Then open your browser at **`http://localhost:8080`**.
 
 The Web Studio includes:
-- 🎬 Dual input support: YouTube URL or drag-and-drop local video files.
-- 🌐 Interactive 25+ language selector grid with female/male neural voice picker.
-- ⚙️ Real-time 6-step progress pipeline visualizer and live terminal log stream.
-- 📺 Built-in video player for instant preview of the dubbed result.
-- ⬇️ One-click export center for Dubbed Video (`.mp4`), Dubbed Audio (`.wav`), Subtitles (`.srt`, `.vtt`), and Transcript JSON.
-- 📜 History drawer to inspect past dubbing sessions.
+-  Dual input support: YouTube URL or drag-and-drop local video files.
+-  Interactive 25+ language selector grid with female/male neural voice picker.
+-  Real-time 6-step progress pipeline visualizer and live terminal log stream.
+-  Built-in video player for instant preview of the dubbed result.
+-  One-click export center for Dubbed Video (`.mp4`), Dubbed Audio (`.wav`), Subtitles (`.srt`, `.vtt`), and Transcript JSON.
+-  History drawer to inspect past dubbing sessions.
 
 ---
 
@@ -140,7 +140,7 @@ python main.py -i input.mp4 -t ja --embed-subtitles
 
 ---
 
-## 🌐 Supported Languages & Voices
+##  Supported Languages & Voices
 
 | Code | Language | Female Voice | Male Voice |
 |------|----------|--------------|------------|
@@ -196,7 +196,7 @@ automated-video-dubbing/
 
 ---
 
-## 🐳 Docker & Cloud Deployment (Hugging Face Spaces)
+##  Docker & Cloud Deployment (Hugging Face Spaces)
 
 ### Running with Docker Locally
 
@@ -226,5 +226,5 @@ Open **`http://localhost:7860`** in your browser.
 
 ---
 
-## 📄 License
+## License
 This project is open-source under the MIT License.
