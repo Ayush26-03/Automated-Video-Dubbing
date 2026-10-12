@@ -1,6 +1,12 @@
 # 🎙️ Automated Video Dubbing Pipeline 🎬
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-6366f1?style=for-the-badge&logo=github&logoColor=white)](https://ayush26-03.github.io/Automated-Video-Dubbing/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+
 An end-to-end AI-powered video translation and dubbing system that transcribes speech, translates it into 25+ target languages, synthesizes high-fidelity neural speech, and synchronizes the audio back into the video with millisecond accuracy.
+
+🔗 **Live Interactive Web Studio:** [https://ayush26-03.github.io/Automated-Video-Dubbing/](https://ayush26-03.github.io/Automated-Video-Dubbing/)
 
 ---
 
