@@ -194,37 +194,7 @@ automated-video-dubbing/
         └── output/
 ```
 
----
-
-##  Docker & Cloud Deployment (Hugging Face Spaces)
-
-### Running with Docker Locally
-
-Build and start the container with `ffmpeg` and all neural models bundled:
-
-```bash
-docker build -t dubstudio-ai .
-docker run -p 7860:7860 dubstudio-ai
-```
-
-Open **`http://localhost:7860`** in your browser.
-
----
-
-### Deploying to Hugging Face Spaces (Free Cloud Hosting)
-
-1. Create a free account on [Hugging Face](https://huggingface.co).
-2. Go to **New Space** → Name it (e.g. `dubstudio-ai`).
-3. Select **Docker** (Blank template) with the free 16 GB RAM + 2 vCPU tier.
-4. Clone your Space repository or push this repository directly:
-   ```bash
-   git remote add space https://huggingface.co/spaces/<your-username>/dubstudio-ai
-   git push space main
-   ```
-5. Hugging Face will automatically build the `Dockerfile` and launch your live studio at:
-   `https://huggingface.co/spaces/<your-username>/dubstudio-ai`
-
----
-
-## License
+## 📄 License
 This project is open-source under the MIT License.
+
+
