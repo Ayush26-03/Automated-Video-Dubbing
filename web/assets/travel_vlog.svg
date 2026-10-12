@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="tvSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fdba74"/>
+      <stop offset="40%" stop-color="#f472b6"/>
+      <stop offset="80%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#312e81"/>
+    </linearGradient>
+    <linearGradient id="tvSea" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#4338ca"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#tvSky)"/>
+  <circle cx="320" cy="190" r="70" fill="#fef08a" opacity="0.95"/>
+  <rect y="210" width="640" height="150" fill="url(#tvSea)"/>
+  <!-- Sunset reflection -->
+  <polygon points="310,210 330,210 360,360 280,360" fill="#fde047" opacity="0.35"/>
+  <!-- Distant cliffs -->
+  <polygon points="0,210 80,160 180,210" fill="#1e1b4b" opacity="0.8"/>
+  <polygon points="460,210 560,170 640,210" fill="#1e1b4b" opacity="0.8"/>
+  <!-- Coastal road foreground -->
+  <path d="M0 290 Q220 270 420 310 Q540 330 640 360 L0 360 Z" fill="#334155"/>
+  <path d="M0 310 Q220 290 420 330 Q540 350 640 370" stroke="#facc15" stroke-width="4" stroke-dasharray="20 15" fill="none"/>
+  <!-- Palm silhouettes -->
+  <path d="M50 360 Q70 260 85 180" stroke="#0f172a" stroke-width="6" fill="none"/>
+  <path d="M85 180 Q60 160 30 170 M85 180 Q80 150 70 130 M85 180 Q105 150 125 140 M85 180 Q115 170 135 180 M85 180 Q95 200 115 210" stroke="#0f172a" stroke-width="4" fill="none"/>
+  <!-- Traveler / Van -->
+  <rect x="250" y="275" width="45" height="25" rx="4" fill="#f8fafc"/>
+  <rect x="280" y="279" width="12" height="10" rx="2" fill="#0284c7"/>
+  <circle cx="260" cy="302" r="5" fill="#0f172a"/>
+  <circle cx="285" cy="302" r="5" fill="#0f172a"/>
+</svg>

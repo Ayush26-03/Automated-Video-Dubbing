@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="natSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="60%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#bae6fd"/>
+    </linearGradient>
+    <linearGradient id="natLake" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0369a1"/>
+      <stop offset="100%" stop-color="#0c4a6e"/>
+    </linearGradient>
+    <linearGradient id="snowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#natSky)"/>
+  <!-- Fuji / Grand Mountain Peak -->
+  <polygon points="120,240 320,50 520,240" fill="#334155"/>
+  <polygon points="260,110 320,50 380,110 350,130 330,120 310,135 290,120" fill="url(#snowGrad)"/>
+  <!-- Mountain Shadow -->
+  <polygon points="320,50 520,240 320,240" fill="#1e293b" opacity="0.4"/>
+  <!-- Ridge lines -->
+  <line x1="320" y1="50" x2="330" y2="240" stroke="#0f172a" stroke-width="2" opacity="0.3"/>
+  <!-- Pine forest foothills -->
+  <rect y="210" width="640" height="40" fill="#064e3b" opacity="0.9"/>
+  <!-- Mirror Lake -->
+  <rect y="240" width="640" height="120" fill="url(#natLake)"/>
+  <!-- Inverted Reflection -->
+  <polygon points="180,240 320,330 460,240" fill="#075985" opacity="0.5"/>
+  <polygon points="280,270 320,330 360,270" fill="#e2e8f0" opacity="0.4"/>
+  <!-- Evergreen Trees Foreground -->
+  <polygon points="40,360 60,280 80,360" fill="#022c22"/>
+  <polygon points="70,360 90,290 110,360" fill="#064e3b"/>
+  <polygon points="560,360 580,285 600,360" fill="#022c22"/>
+  <polygon points="530,360 550,295 570,360" fill="#064e3b"/>
+</svg>

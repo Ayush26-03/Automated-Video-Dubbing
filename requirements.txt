@@ -1,0 +1,20 @@
+# Core AI & Audio-Video Dubbing Requirements
+# Primary fast inference path (CTranslate2-backed, no PyTorch required at runtime)
+faster-whisper>=1.0.0
+edge-tts>=6.1.9
+yt-dlp>=2023.11.16
+mutagen>=1.47.0
+tqdm>=4.66.0
+requests>=2.31.0
+numpy>=1.24.0
+aiohttp>=3.9.0
+
+# Translation model (NLLB-200 via Hugging Face Transformers; pulls torch as a dependency)
+transformers>=4.35.0
+sentencepiece>=0.1.99
+
+# --- Optional fallback path ---
+# Uncomment the lines below ONLY if you want to use the legacy OpenAI Whisper
+# backend instead of faster-whisper. Most users do NOT need these (they add ~3 GB).
+# openai-whisper>=20231117
+# torch>=2.0.0

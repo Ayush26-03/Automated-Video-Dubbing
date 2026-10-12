@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="citySky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="50%" stop-color="#334155"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <linearGradient id="canalWater" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#citySky)"/>
+  <!-- Distant City Skyline -->
+  <rect x="50" y="140" width="40" height="120" fill="#0f172a" opacity="0.6"/>
+  <rect x="110" y="110" width="50" height="150" fill="#0f172a" opacity="0.7"/>
+  <polygon points="135,70 110,110 160,110" fill="#0f172a" opacity="0.7"/>
+  <rect x="440" y="120" width="60" height="140" fill="#0f172a" opacity="0.6"/>
+  <rect x="520" y="100" width="45" height="160" fill="#0f172a" opacity="0.7"/>
+  <!-- Classic Canal Houses Left -->
+  <polygon points="0,90 45,50 90,90" fill="#991b1b"/>
+  <rect x="0" y="90" width="90" height="170" fill="#7f1d1d"/>
+  <polygon points="90,110 135,80 180,110" fill="#b45309"/>
+  <rect x="90" y="110" width="90" height="150" fill="#92400e"/>
+  <!-- Windows with warm lights -->
+  <rect x="20" y="110" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="55" y="110" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="20" y="150" width="15" height="20" rx="2" fill="#fde047"/>
+  <rect x="55" y="150" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="110" y="130" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="145" y="130" width="15" height="20" rx="2" fill="#fde047"/>
+  <rect x="110" y="170" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="145" y="170" width="15" height="20" rx="2" fill="#fef08a"/>
+  <!-- Classic Canal Houses Right -->
+  <polygon points="460,100 510,65 560,100" fill="#1e3a8a"/>
+  <rect x="460" y="100" width="100" height="160" fill="#172554"/>
+  <polygon points="560,85 600,55 640,85" fill="#701a75"/>
+  <rect x="560" y="85" width="80" height="175" fill="#4a044e"/>
+  <rect x="480" y="125" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="525" y="125" width="15" height="20" rx="2" fill="#fde047"/>
+  <rect x="480" y="165" width="15" height="20" rx="2" fill="#fef08a"/>
+  <rect x="525" y="165" width="15" height="20" rx="2" fill="#fef08a"/>
+  <!-- Canal Water -->
+  <rect y="260" width="640" height="100" fill="url(#canalWater)"/>
+  <!-- Warm reflections in canal -->
+  <ellipse cx="55" cy="300" rx="35" ry="6" fill="#f59e0b" opacity="0.4"/>
+  <ellipse cx="145" cy="300" rx="30" ry="6" fill="#f59e0b" opacity="0.4"/>
+  <ellipse cx="505" cy="300" rx="35" ry="6" fill="#f59e0b" opacity="0.4"/>
+  <!-- Stone Bridge in Canal Center -->
+  <path d="M180 260 Q320 230 460 260 L460 280 Q320 250 180 280 Z" fill="#475569"/>
+  <!-- Lantern on Bridge -->
+  <rect x="317" y="222" width="6" height="18" fill="#1e293b"/>
+  <circle cx="320" cy="220" r="7" fill="#fef08a"/>
+  <ellipse cx="320" cy="275" rx="15" ry="4" fill="#fef08a" opacity="0.6"/>
+</svg>

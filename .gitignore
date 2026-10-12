@@ -1,0 +1,38 @@
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python cache & artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local media, models and run outputs
+outputs/
+output/
+downloads/
+audio_segments/
+transcripts/
+translations/
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.webm
+*.wav
+*.mp3
+*.srt
+*.vtt
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
